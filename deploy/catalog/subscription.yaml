@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: k8sn-subscription
+  namespace: openshift-operators 
+spec:
+  channel: alpha
+  name: k8sn
+  source: k8sn-operator
+  sourceNamespace: openshift-operators

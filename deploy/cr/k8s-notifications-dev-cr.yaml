@@ -1,0 +1,39 @@
+#apiVersion: rbac.authorization.k8s.io/v1
+#kind: ClusterRoleBinding
+#metadata:
+#  name: k8sn-operator
+#subjects:
+#  - kind: ServiceAccount
+#    name: k8sn-operator
+#    namespace: "*"
+#roleRef:
+#  kind: ClusterRole
+#  name: k8sn-operator
+#  apiGroup: ""
+#---
+#apiVersion: v1
+#kind: ServiceAccount
+#metadata:
+#  labels:
+#    app.kubernetes.io/name: k8sn-notifications-operator
+#  name: k8sn-operator
+#  namespace: dev
+---
+apiVersion: operators.vn.com/v1alpha1
+kind: K8sNotifications
+metadata:
+  name: k8sn-notifications-dev
+  namespace: dev
+spec:
+  image: quay.io/vnoperators/k8sn-notifications:3.0.0
+  name: k8sn-notifications
+  namespace: dev
+  slackToken: xoxp-299774602374-298906680820-2814767455106-d2e7e769cc3920a4a82fe385c38de8e2
+  slackChannelId: C02PRT4SB2A
+  database:
+    dbKind: mysl
+    dbUrl: jdbc:mysql://mysql-svc.infra.svc.cluster.local/db
+    dbUsername: mysql
+    dbPassword: "mysqlpass#123"
+status:
+  readyReplicas: 1

@@ -1,0 +1,13 @@
+quarkus:
+  container-image:
+    build: false
+    name: k8sn-operator
+    #group:
+  operator-sdk:
+    crd:
+      apply: true # set to true to automatically apply CRDs to the cluster when they get regenerated
+
+operator:
+  namespace: openshift-operators
+  service-account: k8sn-operator
+  image-pull-secrets: regcred

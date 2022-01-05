@@ -1,0 +1,13 @@
+domain: vn.com
+layout:
+- quarkus.javaoperatorsdk.io/v1-alpha
+projectName: k8sn-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: vn.com
+  group: operators
+  kind: K8sNotifications
+  version: v1alpha1
+version: "3"
