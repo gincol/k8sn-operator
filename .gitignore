@@ -9,6 +9,9 @@ bin
 target
 .settings
 
+.project
+.classpath
+
 # editor and IDE paraphernalia
 .idea
 *.swp
