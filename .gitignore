@@ -7,6 +7,7 @@
 *.dylib
 bin
 target
+.settings
 
 # editor and IDE paraphernalia
 .idea
